@@ -5,7 +5,7 @@ import BlBody from "./components/body/bl-body"
 
 function App() {
   return (
-      <div className="App" className="flex-column bg-white dark:bg-black text-black dark:text-white">
+      <div className="App flex-column">
         <BlHeader/>
         <BlBody/>
       </div>

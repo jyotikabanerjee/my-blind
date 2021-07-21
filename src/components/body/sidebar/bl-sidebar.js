@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const BlSidebar = (props) => {
+const BlSidebar = () => {
     return (
         <div className="flex flex-column">
             Sidebar

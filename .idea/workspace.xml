@@ -43,8 +43,8 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/header" />
       <recent name="$PROJECT_DIR$/src/components/body/content" />
+      <recent name="$PROJECT_DIR$/src/components/header" />
       <recent name="$PROJECT_DIR$/src/components/body" />
     </key>
   </component>
@@ -85,11 +85,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1626644214651</updated>
-      <workItem from="1626644218373" duration="8931000" />
+      <workItem from="1626644218373" duration="30357000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="305" y="176" key="run.anything.popup" timestamp="1626746228768">
+      <screen x="0" y="23" width="1280" height="741" />
+    </state>
+    <state x="305" y="176" key="run.anything.popup/0.23.1280.741@0.23.1280.741" timestamp="1626746228768" />
   </component>
 </project>
