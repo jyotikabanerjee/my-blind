@@ -1,12 +1,17 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import {useHistory} from 'react-router-dom';
+// import PropTypes from 'prop-types';
 
 const SignIn = ({}) => {
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
+    let history = useHistory();
     // let [formErrors, setFormErrors] = useState({
     //    username: '', password: ''
     // });
+    const goBack = (ev) => {
+        history.push( `/my-blind`);
+    };
 
     return (
         <div>
@@ -29,12 +34,18 @@ const SignIn = ({}) => {
                             id="password" type="password" value={password} placeholder="******************"/>
                             <p className="text-red-300 text-xs italic">Please enter a password.</p>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mb-4">
                         <button
                             className="sm:w-auto flex-none bg-gradient-to-r from-purple-400 via-pink-500 to-red-500  text-md leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
                             type="button">
                             Sign In
                         </button>
+                        <button className="sm:w-auto ml-2 flex-none bg-gradient-to-r from-purple-400 via-pink-500 to-red-500  text-md leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
+                                onClick={goBack}>
+                            Go Back
+                        </button>
+                    </div>
+                    <div className="flex items-center justify-between">
                         <a className="inline-block align-baseline font-bold text-sm text-blue-700 hover:text-blue-800"
                            href="#">
                             Forgot Password?
