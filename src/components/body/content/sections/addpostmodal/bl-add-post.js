@@ -1,22 +1,55 @@
 import React, {useState} from 'react';
 // import PropTypes from 'prop-types';
 import { BsFileEarmarkPlus } from  'react-icons/bs'
+import { v4 } from 'uuid';
+
+async function myHTTPPost(url, data) {
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    data.createdAt = Date.now();
+    let raw = JSON.stringify(data);
+    console.log(raw);
+    let requestOptions = {
+        method: 'POST',
+        headers: headers,
+        body: raw,
+        redirect: 'follow'
+    };
+    return await fetch(url, requestOptions)
+}
 
 const AddPostModal = ({setOpenModal}) => {
     let [topic, setTopic] = useState('Tech');
     let [title, setTitle] = useState('');
     let [text, setText] = useState('');
-    let ttext = '';
+
     const closeModal = () => {
         setOpenModal(false);
     };
 
     const submitPost = () => {
         setOpenModal(false);
-        console.log(topic);
-        console.log(title);
-        console.log(text);
+        // console.log(topic);
+        // console.log(title);
+        // console.log(text);
+        const url = `https://my-blind-98ebc-default-rtdb.firebaseio.com/bl-posts.json`;
         // Make POST Request
+        let postObj= {
+            id: v4(),
+          topic,
+          title,
+          text
+        };
+
+        console.log(postObj);
+        async function addNewPost (url, postObj ) {
+            let resp = await myHTTPPost(url, postObj);
+            console.log('RESP');
+            return await resp.json();
+        }
+        let res =  addNewPost(url, postObj);
+        console.log('RES');
+        console.log(res);
     };
 
     const handleTitleSubmit = (ev) => {
@@ -28,18 +61,13 @@ const AddPostModal = ({setOpenModal}) => {
 
     const handleTextSubmit = (ev) => {
         console.log('Text blur');
-        // console.log(ev.target.value);
-       setText(ev.target.value);
-    };
-
-    const handleTextValidation = (ev) => {
-        console.log('Text on change');
         console.log(ev.target.value);
+        setText(text);
     };
 
     const handleSelection = (ev) => {
         console.log('Selection');
-        // console.log(ev.target.value);
+        console.log(ev.target.value);
         setTopic(ev.target.value);
     };
 
@@ -61,7 +89,7 @@ const AddPostModal = ({setOpenModal}) => {
                                 </h3>
                                 <div className="mt-2">
                                     <p className="text-sm text-gray-500">
-                                        <select name="category" id="selectCat" onChange={handleSelection} value={'Tech'} className="text-sm mx-auto rounded-md w-96 p-3 border border-lightgray-600 text-gray-700">
+                                        <select name="category" id="selectCat" onChange={handleSelection} value={topic} className="text-sm mx-auto rounded-md w-96 p-3 border border-lightgray-600 text-gray-700">
                                             <option> Tech </option>
                                             <option> S/W </option>
                                             <option> Immigration </option>
@@ -89,8 +117,8 @@ const AddPostModal = ({setOpenModal}) => {
                                                   required={true}
                                                   name="textarea-name"
                                                   value={text} placeholder="Start writing here..."
-                                                  onBlur={handleTextSubmit} onChange={handleTextValidation} >
-                                            {ttext}
+                                                  onChange={e => setText(e.target.value)}>
+                                                  onBlur={handleTextSubmit}
                                         </textarea>
 
                                     </p>

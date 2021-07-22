@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 import firebase from "firebase/app";
