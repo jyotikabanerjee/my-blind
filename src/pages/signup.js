@@ -80,6 +80,9 @@ const SignUp = (props) => {
                         </div>
                     </div>
                 </form>
+                <p className="text-center text-gray-500 text-xs">
+                    &copy;2020 MY-BLIND Corp. All rights reserved.
+                </p>
             </div>
         </div>
     );
