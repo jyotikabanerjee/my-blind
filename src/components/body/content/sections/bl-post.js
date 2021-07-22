@@ -8,7 +8,7 @@ const BlPost = () => {
     let match = useRouteMatch();
     let {allPosts, setAllPosts, post, setPost} = useContext(PostContext);
     let history = useHistory();
-    let displayDate = moment(post.createdAt).calendar();
+    // let displayDate = ;
 
     // console.log(displayDate);
     const navigateToPost = (ev) => {
@@ -40,7 +40,7 @@ const BlPost = () => {
                             <div id={post.id} className="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
                                 <h3 id={post.id} className="font-semibold text-lg leading-tight truncate">{post.title}</h3>
                                 <p id={post.id} className="text-sm text-gray-700  tracking-wide mt-2">
-                                    Created {displayDate}
+                                    Created {moment(post.createdAt).calendar()}
                                 </p>
                                 <p id={post.id} className="mt-2">
                                     {post.text}
