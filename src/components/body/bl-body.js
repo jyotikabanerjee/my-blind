@@ -6,7 +6,7 @@ import BlContent from "./content/bl-content";
 function BlBody(props)
 {
     return (
-        <div className=" box-content p-4 border-2 w-screen mx-auto">
+        <div className=" box-content p-4 border-2 border-gray-500 w-screen mx-auto">
             <BlContent/>
         </div>
     );

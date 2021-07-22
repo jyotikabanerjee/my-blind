@@ -1,13 +1,19 @@
 import './App.css';
-import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import React, {useState} from 'react';
+import { Switch, Route} from 'react-router-dom';
 import Main from './pages/main';
 import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";
 import SelectedPost from "./pages/selected-post"
+import PostContext from "./PostContext";
 
 function App() {
+    const [allPosts, setAllPosts] = useState([]);
+    const [post, setPost] = useState([]);
+   const value = {allPosts: allPosts, setAllPosts:setAllPosts, post:post, setPost:setPost};
+
   return (
+      <PostContext.Provider value={value}>
       <div className="App flex-column">
           <Switch>
               <Route path="/my-blind-signup">
@@ -27,6 +33,7 @@ function App() {
               </Route>
           </Switch>
       </div>
+      </PostContext.Provider>
   );
 }
 

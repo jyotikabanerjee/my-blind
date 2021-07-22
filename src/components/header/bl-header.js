@@ -26,7 +26,7 @@ function BlHeader(props)
     };
 
     return (
-        <div className="inline-flex box-content p-4 border-2 w-screen">
+        <div className="inline-flex box-content p-4 border-2 border-gray-500 w-screen">
             <div style={{'marginTop': '25px', 'padding': '0', 'width': '200px', 'fontSize': '2em',}}>
                 <span style={{'fontFamily': 'Zen Tokyo Zoo'}}>MYBLIND</span>
             </div>

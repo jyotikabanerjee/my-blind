@@ -1,19 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import moment from "moment";
 import {useHistory} from "react-router-dom";
 //import BlPost from "../components/body/content/sections/bl-post";
+import PostContext from "../PostContext";
 
-const SelectedPost = ({post}) => {
+const SelectedPost = () => {
     // todo: read the selected post from context
-    let displayDate =  '1 hour ago';//moment(post.createdAt).calendar();
+    const {post} = useContext(PostContext);
+    let displayDate =  moment(post.createdAt).calendar();
     // let match = useRouteMatch();
-    post =  {
-        'title': 'This is some title',
-        'text': 'Integer ullamcorper malesuada enim at ultrices. Sed eu urna dictum, consectetur magna eget, tincidunt massa. Pellentesque sed aliquam massa. Praesent commodo, quam et mattis rhoncus, enim lacus pretium quam, sed convallis velit elit id velit. Vivamus in magna odio. Vivamus lectus mauris, porttitor et leo at, cursus convallis nulla. Nam sit amet purus ultricies est auctor tempus non ac eros. Fusce vitae massa urna.',
-        'id': '764786394873947019801209',
-        'topic': 'Tech'
-    };
+    // post =  {
+    //     'title': 'This is some title',
+    //     'text': 'Integer ullamcorper malesuada enim at ultrices. Sed eu urna dictum, consectetur magna eget, tincidunt massa. Pellentesque sed aliquam massa. Praesent commodo, quam et mattis rhoncus, enim lacus pretium quam, sed convallis velit elit id velit. Vivamus in magna odio. Vivamus lectus mauris, porttitor et leo at, cursus convallis nulla. Nam sit amet purus ultricies est auctor tempus non ac eros. Fusce vitae massa urna.',
+    //     'id': '764786394873947019801209',
+    //     'topic': 'Tech'
+    // };
     let history = useHistory();
     // console.log(displayDate);
     const goBack = (ev) => {

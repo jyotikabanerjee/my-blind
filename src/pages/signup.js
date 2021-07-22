@@ -6,6 +6,10 @@ const SignUp = (props) => {
     const goToSignInPage = () => {
         history.push('/my-blind-signin')
     };
+    // console.log(displayDate);
+    const goBack = (ev) => {
+        history.push( `/my-blind`);
+    };
     return (
         <div>
             <div className="mx-auto h-full mt-5 w-3/4 ">
@@ -76,6 +80,10 @@ const SignUp = (props) => {
                                 className="sm:w-auto flex-none bg-gradient-to-r from-purple-400 via-pink-500 to-red-500  text-md leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
                                 type="button">
                                 Sign Up
+                            </button>
+                            <button className="sm:w-auto ml-4 flex-none bg-gradient-to-r from-purple-400 via-pink-500 to-red-500  text-md leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
+                                    onClick={goBack}>
+                                Go Back
                             </button>
                         </div>
                     </div>

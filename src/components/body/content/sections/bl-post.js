@@ -1,16 +1,22 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { useHistory, useRouteMatch } from 'react-router-dom';
+import PostContext from "../../../../PostContext";
 
-const BlPost = ({post}) => {
-    let displayDate = moment(post.createdAt).calendar();
-    // let match = useRouteMatch();
+const BlPost = () => {
+    let match = useRouteMatch();
+    let {allPosts, setAllPosts, post, setPost} = useContext(PostContext);
     let history = useHistory();
+    let displayDate = moment(post.createdAt).calendar();
+
     // console.log(displayDate);
     const navigateToPost = (ev) => {
+        let selected = allPosts.find(e => e.id === ev.target.id);
+        setPost(selected);
+        console.log(ev.target);
         console.log('Ready to navigate to post ', post.id);
-        history.push( `/my-blind/${post.id}`);
+        history.push(`${match.path}/${post.id}`);
     };
 
     return (
@@ -26,22 +32,26 @@ const BlPost = ({post}) => {
             {/*    </div>*/}
             {/*</section>*/}
 
-            <div onClick={navigateToPost} id={post.id} className="flex cursor-pointer flex-col md:flex-row overflow-hidden
-                                        bg-gray-400 rounded-lg shadow-xl  mt-4 w-2/3 mx-2">
+            {allPosts.length > 0 && allPosts.map((post) => {
+                return <div onClick={navigateToPost} id={post.id} key={post.id}>
+                        <div id={post.id} className="flex cursor-pointer flex-col md:flex-row overflow-hidden
+                                            bg-gray-400 rounded-lg shadow-xl  mt-4 w-2/3 mx-2">
 
-                <div className="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
-                    <h3 className="font-semibold text-lg leading-tight truncate">{post.title}</h3>
-                    <p className="text-sm text-gray-700  tracking-wide mt-2">
-                        Created {displayDate}
-                    </p>
-                    <p className="mt-2">
-                        {post.text}
-                    </p>
-                    <p className="text-sm text-gray-700 tracking-wide mt-2">
-                       topic: {post.topic}
-                    </p>
-                </div>
-            </div>
+                            <div id={post.id} className="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
+                                <h3 id={post.id} className="font-semibold text-lg leading-tight truncate">{post.title}</h3>
+                                <p id={post.id} className="text-sm text-gray-700  tracking-wide mt-2">
+                                    Created {displayDate}
+                                </p>
+                                <p id={post.id} className="mt-2">
+                                    {post.text}
+                                </p>
+                                <p id={post.id} className="text-sm text-gray-700 tracking-wide mt-2">
+                                    topic: {post.topic}
+                                </p>
+                            </div>
+                        </div>
+                     </div>
+            })}
         </div>
     );
 };

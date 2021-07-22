@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 // import PropTypes from 'prop-types';
 import BlPost from "./sections/bl-post";
-
+import PostContext from "../../../PostContext";
 async function myHTTPGet (url) {
     return await fetch(url);
 }
 const BlContent = () => {
-
     // todo: Put all data in context. useContext to fetch data as needed by ID in route param
-    const [allData, setAllData] = useState([]);
+    // const [allData, setAllData] = useState([]);
+    const {allPosts, setAllPosts, post, setPost } = useContext(PostContext);
 
     useEffect(() => {
         async function getAllPosts() {
@@ -26,7 +26,8 @@ const BlContent = () => {
             posts.sort((a,b) => {
                return new Date(b.createdAt) - new Date(a.createdAt);
             });
-            setAllData(posts);
+            setAllPosts(posts);
+            // setPost(allPosts[0]);
          }
          getAllPosts();
     }, []);
@@ -34,9 +35,7 @@ const BlContent = () => {
 
     return (
         <div className="flex-column mx-auto">
-            {allData.length > 0 && allData.map((post) => {
-                return <BlPost post={post} key={post.id}/>
-            })}
+             <BlPost posts={allPosts}/>
         </div>
     );
 };
