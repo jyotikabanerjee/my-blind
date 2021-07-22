@@ -6,10 +6,8 @@ async function myHTTPGet (url) {
     return await fetch(url);
 }
 const BlContent = () => {
-    /**
-     * GET all posts
-     * Create one section per post
-     */
+
+    // todo: Put all data in context. useContext to fetch data as needed by ID in route param
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
@@ -37,7 +35,7 @@ const BlContent = () => {
     return (
         <div className="flex-column mx-auto">
             {allData.length > 0 && allData.map((post) => {
-                return <BlPost key={post.id} post={post}/>
+                return <BlPost post={post} key={post.id}/>
             })}
         </div>
     );

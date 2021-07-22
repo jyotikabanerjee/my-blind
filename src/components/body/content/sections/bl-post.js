@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 
 const BlPost = ({post}) => {
     let displayDate = moment(post.createdAt).calendar();
+    // let match = useRouteMatch();
+    let history = useHistory();
     // console.log(displayDate);
+    const navigateToPost = (ev) => {
+        console.log('Ready to navigate to post ', post.id);
+        history.push( `/my-blind/${post.id}`);
+    };
+
     return (
         <div>
             {/*<section>*/}
@@ -18,21 +26,21 @@ const BlPost = ({post}) => {
             {/*    </div>*/}
             {/*</section>*/}
 
-            <div className="flex flex-col md:flex-row overflow-hidden
+            <div onClick={navigateToPost} id={post.id} className="flex cursor-pointer flex-col md:flex-row overflow-hidden
                                         bg-gray-400 rounded-lg shadow-xl  mt-4 w-2/3 mx-2">
 
-            <div className="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
-                <h3 className="font-semibold text-lg leading-tight truncate">{post.title}</h3>
-                <p className="text-sm text-gray-700  tracking-wide mt-2">
-                    Created {displayDate}
-                </p>
-                <p className="mt-2">
-                    {post.text}
-                </p>
-                <p className="text-sm text-gray-700 tracking-wide mt-2">
-                   topic: {post.topic}
-                </p>
-            </div>
+                <div className="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
+                    <h3 className="font-semibold text-lg leading-tight truncate">{post.title}</h3>
+                    <p className="text-sm text-gray-700  tracking-wide mt-2">
+                        Created {displayDate}
+                    </p>
+                    <p className="mt-2">
+                        {post.text}
+                    </p>
+                    <p className="text-sm text-gray-700 tracking-wide mt-2">
+                       topic: {post.topic}
+                    </p>
+                </div>
             </div>
         </div>
     );

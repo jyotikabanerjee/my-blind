@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import reportWebVitals from './reportWebVitals';
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 import firebase from "firebase/app";
-const functions = require('firebase-functions');
 
 // The Firebase Admin SDK to access Firestore.
 // const admin = require('firebase-admin');
@@ -24,7 +24,9 @@ firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Router>
+          <App/>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

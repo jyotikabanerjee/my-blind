@@ -73,7 +73,7 @@ const BlSearchbar = () => {
                 <input className="inline-block rounded-3xl mx-auto w-96 p-2 bg-transparent text-white-700 border border-white-1 focus:outline-none"
                        value={query} onChange={onChange} placeholder="Find a post" type="text" name="searchbar" id="search"/>
             </div>
-            <ul className="w-80 ml-5 rounded-md" style={{'position':'absolute', 'background-color':'#243339'}}>
+            <ul className="w-80 ml-5 rounded-md" style={{'position':'absolute', 'backgroundColor':'#243339'}}>
                 {dataList.map((elem, index) => (
                     <li className="border border-white rounded-sm" key={index}>{elem.Title}</li>
                 ))}
