@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/my-blind/static/css/main.35429241.chunk.css",
+    "main.js": "/my-blind/static/js/main.23bbcd98.chunk.js",
+    "main.js.map": "/my-blind/static/js/main.23bbcd98.chunk.js.map",
+    "runtime-main.js": "/my-blind/static/js/runtime-main.210b079a.js",
+    "runtime-main.js.map": "/my-blind/static/js/runtime-main.210b079a.js.map",
+    "static/js/2.507e2cdd.chunk.js": "/my-blind/static/js/2.507e2cdd.chunk.js",
+    "static/js/2.507e2cdd.chunk.js.map": "/my-blind/static/js/2.507e2cdd.chunk.js.map",
+    "static/js/3.056177d3.chunk.js": "/my-blind/static/js/3.056177d3.chunk.js",
+    "static/js/3.056177d3.chunk.js.map": "/my-blind/static/js/3.056177d3.chunk.js.map",
+    "index.html": "/my-blind/index.html",
+    "static/css/main.35429241.chunk.css.map": "/my-blind/static/css/main.35429241.chunk.css.map",
+    "static/js/2.507e2cdd.chunk.js.LICENSE.txt": "/my-blind/static/js/2.507e2cdd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.210b079a.js",
+    "static/js/2.507e2cdd.chunk.js",
+    "static/css/main.35429241.chunk.css",
+    "static/js/main.23bbcd98.chunk.js"
+  ]
+}
