@@ -2,8 +2,8 @@ import React, { useEffect, useContext} from 'react';
 // import PropTypes from 'prop-types';
 import BlPost from "./sections/bl-post";
 import PostContext from "../../../PostContext";
-async function myHTTPGet (url) {
-    return await fetch(url);
+async function myHTTPGet (url, reqOpt) {
+    return await fetch(url, reqOpt);
 }
 const BlContent = () => {
     // todo: Put all data in context. useContext to fetch data as needed by ID in route param
@@ -13,8 +13,10 @@ const BlContent = () => {
     useEffect(() => {
         async function getAllPosts() {
             let url =  'https://my-blind-98ebc-default-rtdb.firebaseio.com/bl-posts.json';
+            let headers = new Headers();
+            headers.append('Accept', 'application/json');
             // let url = '/posts.json';
-            let res = await myHTTPGet(url);
+            let res = await myHTTPGet(url, {headers});
             if(!res.ok) {
                 throw new Error(`Error with GET Posts - Status ${res.status}`);
             }
